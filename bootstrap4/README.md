@@ -27,7 +27,7 @@ Import the Bootstrap theme and optional packages in your otp level client code:
 
 ```javascript
 import 'bootstrap'
-import 'bootstrap/dist/bootstrap.css'            // optional, default theme
+import 'bootstrap/dist/css/bootstrap.css'            // optional, default theme
 import '@fortawesome/fontawesome-free/js/all.js' // optional, is using FA5
 import popper from 'popper.js'
 global.Popper = popper                           // fix Popper.js issues
