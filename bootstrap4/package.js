@@ -23,8 +23,9 @@ Package.onUse(function (api) {
   // By using the env variable below we can, however allow dynamic imports
   if (!process.env.AUTOFORM_DYNAMIC_IMPORTS) {
     api.addFiles([
-      'templates/bootstrap4',
-      'templates/bootstrap4-inline/bootstrap4-inline'
+      'helpers.js',
+      'templates/bootstrap4/index.js',
+      'templates/bootstrap4-inline/bootstrap4-inline.js'
     ], 'client');
   } else {
     api.use('dynamic-import');
