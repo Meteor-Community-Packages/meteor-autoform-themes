@@ -1,0 +1,12 @@
+<template name="afCheckbox_bootstrap4">
+  <div>
+    <div class="form-check form-check-inline">
+      <input type="checkbox" value="true" {{atts}}>
+      <label class="form-check-label" for="{{atts.id}}">{{afFieldLabelText name=this.name}}</label>
+    </div>
+    {{#if afFieldIsInvalid name=this.name}}
+      <input type="hidden" class="form-control is-invalid">
+      <div class="invalid-feedback">{{{afFieldMessage name=this.name}}}</div>
+    {{/if}}
+  </div>
+</template>
