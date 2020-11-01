@@ -13,12 +13,32 @@ $ meteor add twbs:bootstrap
 ```
 
 but **beware**, it's a deprecated package, targeting an outdated Bootstrap 
-version and can lead to problematic XSS vulnerabilities.  
+version and can lead to problematic XSS vulnerabilities and it requires an 
+outdated jQuery version, that is full of vulnerabilities!
 
-Better: use the NPM version:
+**Better:** use the NPM version:
 
 ```bash
-$ meteor npm install --save bootstrap@3.4.1
+$ meteor npm install --save bootstrap@3.4.1 jquery
+```
+
+You will have to import Bootstrap at some point in order to make it available
+to your css compiler:
+
+```javascript
+import 'bootstrap'
+import 'bootstrap/dist/css/bootstrap.css'       // optional, default theme
+import 'bootstrap/dist/css/bootstrap-theme.css' // optional, default theme
+```
+
+**Troubleshooting jQuery**
+
+If you have trouble with jQuery, you can try to explicit reference the latest
+Meteor jQuery package and then manually install jQuery from NPM:
+
+```bash
+$ meteor add jquery@3.0.0!  
+$ meteor npm install --save jquery  
 ```
 
  
