@@ -1,6 +1,6 @@
 Package.describe({
-  name: 'akoerp:autoform-bootstrap3',
-  version: '0.0.1',
+  name: 'mcp:autoform-bootstrap3',
+  version: '1.0.0',
   // Brief, one-line summary of the package.
   summary: '',
   // URL to the Git repository containing the source code for this package.
@@ -17,7 +17,6 @@ Package.onUse(function (api) {
   api.use('aldeed:autoform');
 
   if (!process.env.AUTOFORM_DYNAMIC_IMPORTS) {
-    api.use('dynamic-import');
     api.addFiles([
       // bootstrap3 Template - General
       'templates/bootstrap3/bootstrap3.js',
@@ -89,6 +88,7 @@ Package.onUse(function (api) {
       'templates/bootstrap3-inline/bootstrap3-inline.css',
     ], 'client');
   } else {
+    api.use('dynamic-import');
     api.mainModule('autoform-bootstrap3.js');
   }
 });

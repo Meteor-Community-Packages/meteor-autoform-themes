@@ -19,7 +19,6 @@ Package.onUse(function (api) {
   // By default we add the whole theme to the client bundle.
   // By using the env variable below we can, however allow dynamic imports
   if (!process.env.AUTOFORM_DYNAMIC_IMPORTS) {
-    api.use('dynamic-import');
     api.addFiles([
       // plain Template
       'templates/plain/components/quickForm/quickForm.html',
@@ -33,6 +32,7 @@ Package.onUse(function (api) {
       'templates/plain-fieldset/plain-fieldset.js',
     ], 'client');
   } else {
+    api.use('dynamic-import');
     api.mainModule('autoform-plain.js');
   }
 });
