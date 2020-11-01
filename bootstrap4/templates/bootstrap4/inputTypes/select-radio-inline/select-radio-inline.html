@@ -1,0 +1,16 @@
+<template name="afRadioGroupInline_bootstrap4">
+  <div class="af-radio-group" {{dsk}}>
+    {{#each item in this.items}}
+        {{#with atts @index}}
+         <div class="form-check form-check-inline custom-control custom-radio custom-control-inline">
+            <input type="radio" value="{{item.value}}" {{this}}>
+            <label class="form-check-label custom-control-label" for="{{this.id}}">{{item.label}}</label>
+         </div>
+        {{/with}}
+    {{/each}}
+    {{#if afFieldIsInvalid name=this.name}}
+      <input type="hidden" class="form-control is-invalid">
+      <div class="invalid-feedback">{{{afFieldMessage name=this.name}}}</div>
+    {{/if}}
+  </div>
+</template>

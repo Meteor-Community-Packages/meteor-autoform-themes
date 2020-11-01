@@ -1,0 +1,12 @@
+<template name="afCheckboxGroup_bootstrap4">
+  <div class="af-checkbox-group" {{dsk}}>
+    {{#each item in this.items}}
+    <div class="checkbox custom-control custom-checkbox">
+        {{#with atts @index}}
+        <input type="checkbox" value="{{item.value}}" {{this}} />
+        <label class="custom-control-label" for="{{this.id}}">{{item.label}}</label>
+        {{/with}}
+    </div>
+    {{/each}}
+  </div>
+</template>
