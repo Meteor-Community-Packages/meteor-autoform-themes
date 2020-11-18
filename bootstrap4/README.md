@@ -86,6 +86,15 @@ AutoFormThemeBootstrap4.load()
   })
 ```  
 
+### Troubleshooting
+
+If you decide to use one of the import oprtions (static vs dynamic) and you aim
+to change you might face the situation of an empty form. This is because the
+package may still "keep" the prior configuration (depending on the environment
+variable `AUTOFORM_DYNAMIC_IMPORTS`), since the package has not been rebuilt.
+
+You may have to reset your app via `meteor reset` or delete the folder 
+`.meteor/local` in order to rebuild the package with the updated import config.
 
 ## Using the theme
 
@@ -113,6 +122,8 @@ form declaration:
 
 ## History
 
+- 1.0.3
+  - Added optional dynamic import via `AUTOFORM_DYNAMIC_IMPORTS` env flag
 - 1.0.2
   - input type select-radio uses [bs4 custom-radio skin](https://getbootstrap.com/docs/4.5/components/forms/#radios)
   - input type select-radio-inline uses [bs4 custom-radio-inline skin](https://getbootstrap.com/docs/4.5/components/forms/#inline-1)
