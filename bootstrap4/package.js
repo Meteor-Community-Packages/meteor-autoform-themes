@@ -1,7 +1,7 @@
 /* eslint-env meteor */
 Package.describe({
   name: 'communitypackages:autoform-bootstrap4',
-  version: '1.0.3',
+  version: '1.0.5',
   // Brief, one-line summary of the package.
   summary: 'Bootstrap 4 theme for aldeed:autoform',
   // URL to the Git repository containing the source code for this package.
@@ -11,10 +11,6 @@ Package.describe({
   documentation: 'README.md'
 })
 
-function useDynamicImports () {
-  return !!process.env.AUTOFORM_DYNAMIC_IMPORTS
-}
-
 Package.onUse(function (api) {
   api.versionsFrom('METEOR@1.3')
   api.use('ecmascript')
@@ -23,16 +19,5 @@ Package.onUse(function (api) {
     'aldeed:autoform@6.0.0 || 7.0.0'
   ], 'client')
 
-  // By default we add the whole theme to the client bundle.
-  // By using the env variable below we can, however allow dynamic imports
-  if (!useDynamicImports()) {
-    api.addFiles([
-      'helpers.js',
-      'templates/bootstrap4/index.js',
-      'templates/bootstrap4-inline/bootstrap4-inline.js'
-    ], 'client')
-  } else {
-    api.use('dynamic-import')
-    api.mainModule('autoform-bootstrap4.js', 'client')
-  }
+  api.mainModule('autoform-bootstrap4.js', 'client')
 })
