@@ -1,4 +1,4 @@
-export const AutoFormThemeBootstrap3 = {};
+export const AutoFormThemeBootstrap3 = {}
 
 AutoFormThemeBootstrap3.load = function () {
   return Promise.all([
@@ -16,7 +16,7 @@ AutoFormThemeBootstrap3.load = function () {
     import('templates/bootstrap3/components/afObjectField/afObjectField.js'),
     // bootstrap3 Template - Input Types
     import('templates/bootstrap3/inputTypes/boolean-checkbox/boolean-checkbox.html'),
-    import( 'templates/bootstrap3/inputTypes/boolean-radios/boolean-radios.html'),
+    import('templates/bootstrap3/inputTypes/boolean-radios/boolean-radios.html'),
     import('templates/bootstrap3/inputTypes/boolean-radios/boolean-radios.js'),
     import('templates/bootstrap3/inputTypes/boolean-select/boolean-select.html'),
     import('templates/bootstrap3/inputTypes/button/button.html'),
@@ -69,6 +69,6 @@ AutoFormThemeBootstrap3.load = function () {
     // bootstrap3-inline Template
     import('templates/bootstrap3-inline/bootstrap3-inline.html'),
     import('templates/bootstrap3-inline/bootstrap3-inline.js'),
-    import('templates/bootstrap3-inline/bootstrap3-inline.css'),
-  ]);
-};
+    import('templates/bootstrap3-inline/bootstrap3-inline.css')
+  ])
+}

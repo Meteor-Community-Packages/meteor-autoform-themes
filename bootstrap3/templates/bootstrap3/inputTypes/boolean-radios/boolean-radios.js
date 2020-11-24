@@ -1,26 +1,28 @@
+import { Template } from 'meteor/templating'
+
 Template.afBooleanRadioGroup_bootstrap3.helpers({
-  falseAtts: function falseAtts() {
+  falseAtts: function falseAtts () {
     const { trueLabel, falseLabel, nullLabel, 'data-schema-key': dataSchemaKey, ...atts } = this.atts
     if (this.value === false) {
-      atts.checked = "";
+      atts.checked = ''
     }
-    return atts;
+    return atts
   },
-  trueAtts: function trueAtts() {
+  trueAtts: function trueAtts () {
     const { trueLabel, falseLabel, nullLabel, 'data-schema-key': dataSchemaKey, ...atts } = this.atts
     if (this.value === true) {
-      atts.checked = "";
+      atts.checked = ''
     }
-    return atts;
+    return atts
   },
-  nullAtts: function nullAtts() {
+  nullAtts: function nullAtts () {
     const { trueLabel, falseLabel, nullLabel, 'data-schema-key': dataSchemaKey, ...atts } = this.atts
     if (this.value !== true && this.value !== false) {
-      atts.checked = "";
+      atts.checked = ''
     }
-    return atts;
+    return atts
   },
   dsk: function () {
-    return { 'data-schema-key': this.atts['data-schema-key'] };
+    return { 'data-schema-key': this.atts['data-schema-key'] }
   }
-});
+})

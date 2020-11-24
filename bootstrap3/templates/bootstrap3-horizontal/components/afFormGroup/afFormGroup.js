@@ -1,29 +1,32 @@
-Template["afFormGroup_bootstrap3-horizontal"].helpers({
+/* global AutoForm */
+import { Template } from 'meteor/templating'
+
+Template['afFormGroup_bootstrap3-horizontal'].helpers({
   afFieldInputAtts: function () {
     const { 'input-col-class': inputColClass, ...atts } = this.afFieldInputAtts || {}
     // We have a special template for check boxes, but otherwise we
     // want to use the same as those defined for bootstrap3 template.
-    if (AutoForm.getInputType(this.afFieldInputAtts) === "boolean-checkbox") {
-      atts.template = "bootstrap3-horizontal";
+    if (AutoForm.getInputType(this.afFieldInputAtts) === 'boolean-checkbox') {
+      atts.template = 'bootstrap3-horizontal'
     } else {
-      atts.template = "bootstrap3";
+      atts.template = 'bootstrap3'
     }
-    return atts;
+    return atts
   },
   afFieldLabelAtts: function () {
-    var atts = { ...this.afFieldLabelAtts };
+    let atts = { ...this.afFieldLabelAtts }
     // Add bootstrap class
-    atts = AutoForm.Utility.addClass(atts, "control-label");
-    return atts;
+    atts = AutoForm.Utility.addClass(atts, 'control-label')
+    return atts
   },
   rightColumnClass: function () {
-    var atts = this.afFieldInputAtts || {};
-    return atts['input-col-class'] || "";
+    const atts = this.afFieldInputAtts || {}
+    return atts['input-col-class'] || ''
   },
   skipLabel: function () {
-    var self = this;
+    const self = this
 
-    var type = AutoForm.getInputType(self.afFieldInputAtts);
-    return (self.skipLabel || (type === "boolean-checkbox" && !self.afFieldInputAtts.leftLabel));
+    const type = AutoForm.getInputType(self.afFieldInputAtts)
+    return (self.skipLabel || (type === 'boolean-checkbox' && !self.afFieldInputAtts.leftLabel))
   }
-});
+})

@@ -1,9 +1,11 @@
+import { Template } from 'meteor/templating'
+
 Template.afRadio_bootstrap3.helpers({
-  atts: function selectedAttsAdjust() {
-    var atts = { ...this.atts };
+  atts: function selectedAttsAdjust () {
+    const atts = { ...this.atts }
     if (this.selected) {
-      atts.checked = "";
+      atts.checked = ''
     }
-    return atts;
+    return atts
   }
-});
+})

@@ -1,3 +1,4 @@
+/* eslint-env meteor */
 Package.describe({
   name: 'mcp:autoform-bootstrap3',
   version: '1.0.0',
@@ -8,13 +9,15 @@ Package.describe({
   // By default, Meteor will default to using README.md for documentation.
   // To avoid submitting documentation, set this field to null.
   documentation: 'README.md'
-});
+})
 
 Package.onUse(function (api) {
-  //  api.versionsFrom('1.8.2');
-  api.use('ecmascript');
-  api.use('templating');
-  api.use('aldeed:autoform');
+  api.versionsFrom('METEOR@1.3')
+  api.use('ecmascript')
+  api.use([
+    'templating@1.3.2',
+    'aldeed:autoform@6.0.0 || 7.0.0'
+  ], 'client')
 
   if (!process.env.AUTOFORM_DYNAMIC_IMPORTS) {
     api.addFiles([
@@ -85,17 +88,17 @@ Package.onUse(function (api) {
       // bootstrap3-inline Template
       'templates/bootstrap3-inline/bootstrap3-inline.html',
       'templates/bootstrap3-inline/bootstrap3-inline.js',
-      'templates/bootstrap3-inline/bootstrap3-inline.css',
-    ], 'client');
+      'templates/bootstrap3-inline/bootstrap3-inline.css'
+    ], 'client')
   } else {
-    api.use('dynamic-import');
-    api.mainModule('autoform-bootstrap3.js');
+    api.use('dynamic-import')
+    api.mainModule('autoform-bootstrap3.js')
   }
-});
+})
 
 Package.onTest(function (api) {
-  api.use('ecmascript');
-  api.use('tinytest');
-  api.use('akoerp:autoform-bootstrap3');
-  api.mainModule('autoform-bootstrap3-tests.js');
-});
+  api.use('ecmascript')
+  api.use('tinytest')
+  api.use('akoerp:autoform-bootstrap3')
+  api.mainModule('autoform-bootstrap3-tests.js')
+})
