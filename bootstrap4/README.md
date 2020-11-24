@@ -19,7 +19,7 @@ Altogether you need the following packages:
 ```
 $ meteor npm install --save bootstrap popper.js jquery
 $ meteor npm install --save @fortawesome/fontawesome-free # optional, if using FA 5
-$ meteor add mcp:autoform-bootstrap4 jquery@3.0.0!
+$ meteor add communitypackages:autoform-bootstrap4 jquery@3.0.0!
 $ meteor add fortawesome:fontawesome # optional, if using FA4
 ```
 
@@ -44,7 +44,7 @@ B. Using dynamic imports and adding the theme on-demand; manual effort required
 In both cases you have to install the package to your packages list:
 
 ```bash
-$ meteor add mcp:autoform-bootstrap4
+$ meteor add communitypackages:autoform-bootstrap4
 ``` 
 
 
@@ -73,7 +73,7 @@ In order to load the theme you need to add the following code before you use
 the form (if the form is intended to use this theme):
 
 ```javascript
-import { AutoFormThemeBootstrap4 } from 'meteor/mcp:autoform-booostrap4'
+import { AutoFormThemeBootstrap4 } from 'meteor/communitypackages:autoform-booostrap4'
 
 AutoFormThemeBootstrap4.load()
   .then(() => {

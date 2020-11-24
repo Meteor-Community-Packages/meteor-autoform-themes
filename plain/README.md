@@ -21,7 +21,7 @@ B. Using dynamic imports and adding the theme on-demand; manual effort required
 In both cases you have to install the package to your packages list:
 
 ```bash
-$ meteor add mcp:autoform-plain
+$ meteor add communitypackages:autoform-plain
 ``` 
 
 
@@ -50,7 +50,7 @@ In order to load the theme you need to add the following code before you use
 the form (if the form is intended to use this theme):
 
 ```javascript
-import { AutoFormPlainTheme } from 'meteor/mcp:autoform-plain'
+import { AutoFormPlainTheme } from 'meteor/communitypackages:autoform-plain'
 
 AutoFormPlainTheme.load()
   .then(() => {

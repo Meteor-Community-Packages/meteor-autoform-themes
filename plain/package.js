@@ -1,6 +1,6 @@
 /* eslint-env meteor */
 Package.describe({
-  name: 'mcp:autoform-plain',
+  name: 'communitypackages:autoform-plain',
   version: '1.0.0',
   // Brief, one-line summary of the package.
   summary: 'Plain theme for aldeed:autoform',
@@ -38,11 +38,4 @@ Package.onUse(function (api) {
     api.use('dynamic-import')
     api.mainModule('autoform-plain.js')
   }
-})
-
-Package.onTest(function (api) {
-  api.use('ecmascript')
-  api.use('tinytest')
-  api.use('akoerp:autoform-plain')
-  api.mainModule('autoform-plain-tests.js')
 })

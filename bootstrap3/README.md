@@ -53,7 +53,7 @@ B. Using dynamic imports and adding the theme on-demand; manual effort required
 In both cases you have to install the package to your packages list:
 
 ```bash
-$ meteor add mcp:autoform-bootstrap3
+$ meteor add communitypackages:autoform-bootstrap3
 ``` 
 
 
@@ -82,7 +82,7 @@ In order to load the theme you need to add the following code before you use
 the form (if the form is intended to use this theme):
 
 ```javascript
-import { AutoFormThemeBootstrap3 } from 'meteor/mcp:autoform-booostrap3'
+import { AutoFormThemeBootstrap3 } from 'meteor/communitypackages:autoform-booostrap3'
 
 AutoFormThemeBootstrap3.load()
   .then(() => {

@@ -1,6 +1,6 @@
 /* eslint-env meteor */
 Package.describe({
-  name: 'mcp:autoform-bootstrap4',
+  name: 'communitypackages:autoform-bootstrap4',
   version: '1.0.3',
   // Brief, one-line summary of the package.
   summary: 'Bootstrap 4 theme for aldeed:autoform',

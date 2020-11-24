@@ -1,6 +1,6 @@
 /* eslint-env meteor */
 Package.describe({
-  name: 'mcp:autoform-bootstrap3',
+  name: 'communitypackages:autoform-bootstrap3',
   version: '1.0.0',
   // Brief, one-line summary of the package.
   summary: 'Bootstrap 3 theme for aldeed:autoform',
@@ -99,6 +99,6 @@ Package.onUse(function (api) {
 Package.onTest(function (api) {
   api.use('ecmascript')
   api.use('tinytest')
-  api.use('akoerp:autoform-bootstrap3')
+  api.use('communitypackages:autoform-bootstrap3')
   api.mainModule('autoform-bootstrap3-tests.js')
 })

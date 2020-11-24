@@ -9,6 +9,7 @@ caching-compiler@1.2.2
 caching-html-compiler@1.1.3
 callback-hook@1.3.0
 check@1.3.1
+communitypackages:autoform-bootstrap4@1.0.3
 ddp@1.4.0
 ddp-client@2.3.3
 ddp-common@1.4.0
@@ -29,7 +30,6 @@ inter-process-messaging@0.1.1
 jquery@1.11.11
 livedata@1.0.18
 logging@1.1.20
-mcp:autoform-bootstrap4@1.0.3
 meteor@1.9.3
 modern-browsers@0.1.5
 modules@0.15.0
