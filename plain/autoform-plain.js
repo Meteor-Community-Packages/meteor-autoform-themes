@@ -1,4 +1,4 @@
-export const AutoFormPlainTheme = {};
+export const AutoFormPlainTheme = {}
 
 /**
  * Dynamically loads all Templates of this theme, returns a Promise.
@@ -14,6 +14,6 @@ AutoFormPlainTheme.load = function load () {
     import('templates/plain/components/afObjectField/afObjectField.js'),
     // plain-fieldset Template
     import('templates/plain-fieldset/plain-fieldset.html'),
-    import('templates/plain-fieldset/plain-fieldset.js'),
-  ]);
-};
+    import('templates/plain-fieldset/plain-fieldset.js')
+  ])
+}
