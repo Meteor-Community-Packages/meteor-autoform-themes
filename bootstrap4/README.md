@@ -1,6 +1,7 @@
 # AutoForm Theme Bootstrap 4
 
-This theme contains the Bootstrap 3 compatible theme for [aldeed:autoform](https://github.com/aldeed/meteor-autoform). 
+This theme contains the Bootstrap 4 compatible theme for [aldeed:autoform](https://github.com/aldeed/meteor-autoform)
+versions 6.0.0 or greater). 
 It requires a Boostrap 4 installation.
 
 ## Installation
@@ -9,92 +10,85 @@ If you haven't installed [Bootstrap 4](http://getbootstrap.com/) yet, you need
 to install it and it's peer dependencies using NPM. 
 
 You can (optionally) add [fontawesome](https://fontawesome.com) for builtin 
-icons.  This theme supports fontawesome 4 and font-awesome 5
+icons.  This theme supports fontawesome 4, as well as fontawesome 5 (solid).
 
 Also note, that Meteor's default builtin jquery is not sufficient, 
-which is why you need to add it here, too.
+which is why you need to install via NPM, too.
 
 Altogether you need the following packages:
 
 ```
+# install NPM dependencies
 $ meteor npm install --save bootstrap popper.js jquery
 $ meteor npm install --save @fortawesome/fontawesome-free # optional, if using FA 5
+
+# install meteor packages
 $ meteor add communitypackages:autoform-bootstrap4 jquery@3.0.0!
 $ meteor add fortawesome:fontawesome # optional, if using FA4
 ```
 
-Import the Bootstrap theme and optional packages in your otp level client code:
+### Importing Bootstrap 4
+
+Import the Bootstrap theme and optional packages in your otp level client code
+(for example in *`imports/startup/client/bootstrap.js`*):
 
 ```javascript
 import 'bootstrap'
 import 'bootstrap/dist/css/bootstrap.css'            // optional, default theme
 import '@fortawesome/fontawesome-free/js/all.js' // optional, is using FA5
 import popper from 'popper.js'
+
 global.Popper = popper                           // fix Popper.js issues
 ```
 
-You have two options of installing this theme.
+### Importing the AutoForm theme
 
-A. Adding the theme to the initial bundle (default); comfortable but with bigger
-   initial bundle size.
+From here you have two options for importing this theme.
 
-B. Using dynamic imports and adding the theme on-demand; manual effort required
+**A. Static import:** 
+   Adds the theme to the initial bundle (default); more comfortable but with 
+   bigger initial bundle size.
+
+**B. Dynamic imports:**
+   Adds the theme on-demand; manual effort required
    but lowers the footprint of the initial client bundle.
-   
-In both cases you have to install the package to your packages list:
-
-```bash
-$ meteor add communitypackages:autoform-bootstrap4
-``` 
 
 
-### Installing using static imports (default)
+#### Option A - Import using static imports (default)
 
-You don't have to do a thing, simply adding the package will automatically
-make it available to your client. The only thing you need to do is either
-setting the theme globally or locally.
-
-### Installing using dynamic imports
-
-This theme supports `dynamic-import` so your initial client bundle will not
-contain any of this package's code. 
-
-In order to do so you need to start your Meteor application with a [truthy](https://developer.mozilla.org/en-US/docs/Glossary/Truthy) 
-`AUTOFORM_DYNAMIC_IMPORTS` environment flag:
-
-```bash
-$ AUTOFORM_DYNAMIC_IMPORTS=1 meteor
-```
-
-This will cause the package to make an export available, that contains a 
-function that dynamically loads the theme. 
-
-In order to load the theme you need to add the following code before you use
-the form (if the form is intended to use this theme):
+For statically (immediately) importing the theme you need to import the static 
+loader module in your client's startup code:
 
 ```javascript
-import { AutoFormThemeBootstrap4 } from 'meteor/communitypackages:autoform-booostrap4'
+import 'meteor/communitypackages:autoform-booostrap4/static'
+```
+
+That's it. The theme is imported and ready to use.
+
+#### Option B - Import using dynamic imports
+
+This theme also supports `dynamic-import` so your initial client bundle will
+contain only a minimum portion of this package's code and saves about 39 KB of
+size (estimated via `bundle-visualizer`).
+
+In order to do so you need to import the dynamic version of the loader function:
+
+```javascript
+import { AutoFormThemeBootstrap4 } from 'meteor/communitypackages:autoform-booostrap4/dynamic'
 
 AutoFormThemeBootstrap4.load()
   .then(() => {
-    // theme is imported, you can now make the form available
-    // you could use a reactive var that resolves to true here
-    // or any other mechanism you like to use to reactively activate the form
+    // The theme is imported. You can now make the form available.
+    // You could use a reactive var that resolves to true here
+    // or any other mechanism you like to use to reactively activate the form.
+    
+    // You can now set this theme as default, see the next section.
+    AutoForm.setDefaultTemplate('bootstrap4')
   })
   .catch(err => {
     // handle load error
   })
 ```  
-
-### Troubleshooting
-
-If you decide to use one of the import oprtions (static vs dynamic) and you aim
-to change you might face the situation of an empty form. This is because the
-package may still "keep" the prior configuration (depending on the environment
-variable `AUTOFORM_DYNAMIC_IMPORTS`), since the package has not been rebuilt.
-
-You may have to reset your app via `meteor reset` or delete the folder 
-`.meteor/local` in order to rebuild the package with the updated import config.
 
 ## Using the theme
 
@@ -122,6 +116,11 @@ form declaration:
 
 ## History
 
+- 1.0.5
+  - provide real split between static and dynamic version without environment
+    flags required
+- 1.0.4
+  - skipped, do not use
 - 1.0.3
   - Added optional dynamic import via `AUTOFORM_DYNAMIC_IMPORTS` env flag
 - 1.0.2
@@ -131,3 +130,7 @@ form declaration:
   - 
 - 1.0.1
   - import via dynamic imports
+
+## License
+
+This theme is LICENSED under MIT. See the [LICENSE file](../LICENSE) for more. 
