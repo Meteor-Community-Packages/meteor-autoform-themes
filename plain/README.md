@@ -3,6 +3,10 @@
 This theme contains no specific styling. Customizations are possible using
 `class` attributes, where desired.
 
+[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
+[![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+![GitHub](https://img.shields.io/github/license/Meteor-Community-Packages/meteor-autoform-themes)
+
 ## Installation
 
 Make sure you have 
