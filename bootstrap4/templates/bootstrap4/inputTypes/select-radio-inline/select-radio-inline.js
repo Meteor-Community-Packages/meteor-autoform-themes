@@ -8,7 +8,7 @@ Template.afRadioGroupInline_bootstrap4.helpers({
     if (this.selected) {
       atts.checked = ''
     }
-    
+
     atts.class = atts.class || ''
     atts.class = `${atts.class} form-check-input custom-control-input`
 

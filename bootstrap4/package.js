@@ -9,26 +9,30 @@ Package.describe({
   // By default, Meteor will default to using README.md for documentation.
   // To avoid submitting documentation, set this field to null.
   documentation: 'README.md'
-});
+})
+
+function useDynamicImports () {
+  return !!process.env.AUTOFORM_DYNAMIC_IMPORTS
+}
 
 Package.onUse(function (api) {
-  // api.versionsFrom('1.7.0.3')
+  api.versionsFrom('METEOR@1.3')
   api.use('ecmascript')
   api.use([
     'templating@1.3.2',
-    'aldeed:autoform'
-  ], 'client');
+    'aldeed:autoform@6.0.0 || 7.0.0'
+  ], 'client')
 
   // By default we add the whole theme to the client bundle.
   // By using the env variable below we can, however allow dynamic imports
-  if (!process.env.AUTOFORM_DYNAMIC_IMPORTS) {
+  if (!useDynamicImports()) {
     api.addFiles([
       'helpers.js',
       'templates/bootstrap4/index.js',
       'templates/bootstrap4-inline/bootstrap4-inline.js'
-    ], 'client');
+    ], 'client')
   } else {
-    api.use('dynamic-import');
-    api.mainModule('autoform-bootstrap4.js', 'client');
+    api.use('dynamic-import')
+    api.mainModule('autoform-bootstrap4.js', 'client')
   }
 })
