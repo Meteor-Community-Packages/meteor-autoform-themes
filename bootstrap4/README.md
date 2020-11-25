@@ -60,7 +60,9 @@ For statically (immediately) importing the theme you need to import the static
 loader module in your client's startup code:
 
 ```javascript
-import 'meteor/communitypackages:autoform-booostrap4/static'
+import { AutoFormThemeBootstrap4 } from 'meteor/communitypackages:autoform-booostrap4/static'
+
+AutoFormThemeBootstrap4.load()
 ```
 
 That's it. The theme is imported and ready to use.
