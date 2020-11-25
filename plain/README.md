@@ -7,9 +7,8 @@ This theme contains no specific styling. Customizations are possible using
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 ![GitHub](https://img.shields.io/github/license/Meteor-Community-Packages/meteor-autoform-themes)
 
-## Installation
-
-Make sure you have 
+### Install the theme
+ 
 You have two options of installing this theme.
 
 A. Adding the theme to the initial bundle (default); comfortable but with bigger
@@ -25,44 +24,43 @@ $ meteor add communitypackages:autoform-plain
 ``` 
 
 
-### Installing using static imports (default)
+#### Install via static imports (default)
 
-You don't have to do a thing, simply adding the package will automatically
-make it available to your client. The only thing you need to do is either
-setting the theme globally or locally.
-
-### Installing using dynamic imports
-
-This theme supports `dynamic-import` so your initial client bundle will not
-contain any of this package's code. 
-
-In order to do so you need to start your Meteor application with a [truthy](https://developer.mozilla.org/en-US/docs/Glossary/Truthy) 
-`AUTOFORM_DYNAMIC_IMPORTS` environment flag:
-
-```bash
-$ AUTOFORM_DYNAMIC_IMPORTS=1 meteor
-```
-
-This will cause the package to make an export available, that contains a 
-function that dynamically loads the theme. 
-
-In order to load the theme you need to add the following code before you use
-the form (if the form is intended to use this theme):
+For statically (immediately) importing the theme you need to import the static 
+loader module in your client's startup code:
 
 ```javascript
-import { AutoFormPlainTheme } from 'meteor/communitypackages:autoform-plain'
+import { AutoFormPlainTheme } from 'meteor/communitypackages:autoform-plain/static'
+
+AutoFormPlainTheme.load()
+```
+
+That's it. The theme is imported and ready to use.
+
+#### Install via dynamic imports
+
+This theme also supports `dynamic-import` so your initial client bundle will
+contain only a minimum portion of this package's code and saves about 9 KB of
+size (estimated via `bundle-visualizer`).
+
+In order to do so you need to import the dynamic version of the loader function:
+
+```javascript
+import { AutoFormPlainTheme } from 'meteor/communitypackages:autoform-plain/dynamic'
 
 AutoFormPlainTheme.load()
   .then(() => {
-    // theme is imported, you can now make the form available
-    // you could use a reactive var that resolves to true here
-    // or any other mechanism you like to use to reactively activate the form
+    // The theme is imported. You can now make the form available.
+    // You could use a reactive var that resolves to true here
+    // or any other mechanism you like to use to reactively activate the form.
+    
+    // You can now set this theme as default, see the next section.
+    AutoForm.setDefaultTemplate('plain')
   })
   .catch(err => {
     // handle load error
   })
-```  
-
+```
 
 ## Using the theme
 
@@ -86,3 +84,13 @@ form declaration:
   ...
 {{/autoForm}}
 ```
+
+## History
+
+- 1.0.1
+  - provide real split between static and dynamic version without environment
+    flags required
+  
+## License
+  
+This theme is LICENSED under MIT. See the [LICENSE file](../LICENSE) for more. 
