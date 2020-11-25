@@ -5,16 +5,13 @@ installation.
 
 ## Installation
 
-First, make sure you have Bootstrap 3 installed in your app. You cann easily add
-Boostrap 3 via
+This theme relies on [Bootstrap](https://getbootstrap.com/) with support for the
+third major version of it. Before you can use this theme you need to make sure, 
+that Bootstrap 3 is installed.
 
-```bash
-$ meteor add twbs:bootstrap 
-```
+Note, it will not work with Bootstrap 2.x or Bootstrap 4.x. 
 
-but **beware**, it's a deprecated package, targeting an outdated Bootstrap 
-version and can lead to problematic XSS vulnerabilities and it requires an 
-outdated jQuery version, that is full of vulnerabilities!
+### Install Boostrap 3
 
 **Better:** use the NPM version:
 
@@ -41,6 +38,22 @@ $ meteor add jquery@3.0.0!
 $ meteor npm install --save jquery  
 ```
 
+### Alternatively install the legacy `twbs:bootstrap` package
+
+This theme also supports the legacy `twbs:bootstrap` package, which also leaves
+out the need to install a newer jQuery version. Sipmply add the following line:
+
+```bash
+$ meteor add twbs:bootstrap 
+```
+
+but **beware**, it's a deprecated package, targeting an outdated Bootstrap 
+version and can lead to problematic XSS vulnerabilities and it requires an 
+outdated jQuery version, that is full of vulnerabilities!
+
+Try to use the NPM version whenever you can.
+ 
+### Install the theme
  
 You have two options of installing this theme.
 
@@ -57,44 +70,43 @@ $ meteor add communitypackages:autoform-bootstrap3
 ``` 
 
 
-### Installing using static imports (default)
+#### Install via static imports (default)
 
-You don't have to do a thing, simply adding the package will automatically
-make it available to your client. The only thing you need to do is either
-setting the theme globally or locally.
-
-### Installing using dynamic imports
-
-This theme supports `dynamic-import` so your initial client bundle will not
-contain any of this package's code. 
-
-In order to do so you need to start your Meteor application with a [truthy](https://developer.mozilla.org/en-US/docs/Glossary/Truthy) 
-`AUTOFORM_DYNAMIC_IMPORTS` environment flag:
-
-```bash
-$ AUTOFORM_DYNAMIC_IMPORTS=1 meteor
-```
-
-This will cause the package to make an export available, that contains a 
-function that dynamically loads the theme. 
-
-In order to load the theme you need to add the following code before you use
-the form (if the form is intended to use this theme):
+For statically (immediately) importing the theme you need to import the static 
+loader module in your client's startup code:
 
 ```javascript
-import { AutoFormThemeBootstrap3 } from 'meteor/communitypackages:autoform-booostrap3'
+import { AutoFormThemeBootstrap3 } from 'meteor/communitypackages:autoform-booostrap3/static'
+
+AutoFormThemeBootstrap3.load()
+```
+
+That's it. The theme is imported and ready to use.
+
+#### Install via dynamic imports
+
+This theme also supports `dynamic-import` so your initial client bundle will
+contain only a minimum portion of this package's code and saves about 44 KB of
+size (estimated via `bundle-visualizer`).
+
+In order to do so you need to import the dynamic version of the loader function:
+
+```javascript
+import { AutoFormThemeBootstrap3 } from 'meteor/communitypackages:autoform-booostrap3/dynamic'
 
 AutoFormThemeBootstrap3.load()
   .then(() => {
-    // theme is imported, you can now make the form available
-    // you could use a reactive var that resolves to true here
-    // or any other mechanism you like to use to reactively activate the form
+    // The theme is imported. You can now make the form available.
+    // You could use a reactive var that resolves to true here
+    // or any other mechanism you like to use to reactively activate the form.
+    
+    // You can now set this theme as default, see the next section.
+    AutoForm.setDefaultTemplate('bootstrap3')
   })
   .catch(err => {
     // handle load error
   })
-```  
-
+```
 
 ## Using the theme
 
@@ -118,3 +130,13 @@ form declaration:
   ...
 {{/autoForm}}
 ```
+
+## History
+
+- 1.0.1
+  - provide real split between static and dynamic version without environment
+    flags required
+  
+## License
+  
+This theme is LICENSED under MIT. See the [LICENSE file](../LICENSE) for more. 
