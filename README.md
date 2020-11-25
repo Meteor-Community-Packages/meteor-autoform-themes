@@ -2,6 +2,10 @@
 
 Officially supported themes for `aldeed:autoform` v7 and beyond.
 
+[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
+[![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+![GitHub](https://img.shields.io/github/license/Meteor-Community-Packages/meteor-autoform-themes)
+
 With the beginning of AutoForm v7 there is no default theme included in AutoForm
 in order to lower the package footprint and leave developers more options
 for decision.
@@ -39,4 +43,8 @@ latest Bootstrap, this is your choice.
 ## Contribution
 
 Do not hesitate to report any issue with installing or running the themes.
-Feel free to propose 
+Feel free to propose other themes, that should be included here.
+
+## Linces
+
+MIT, see [LICENSE file](./LICENSE).
