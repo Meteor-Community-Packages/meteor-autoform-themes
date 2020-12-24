@@ -14,6 +14,8 @@ AutoFormThemeBootstrap3.load = function () {
   require('./templates/bootstrap3/components/afObjectField/afObjectField.html')
   require('./templates/bootstrap3/components/afObjectField/afObjectField.js')
   // bootstrap3 Template - Input Types
+  require('./templates/bootstrap3/inputTypes/autocomplete/autocomplete.html')
+  require('./templates/bootstrap3/inputTypes/autocomplete/autocomplete.js')
   require('./templates/bootstrap3/inputTypes/boolean-checkbox/boolean-checkbox.html')
   require('./templates/bootstrap3/inputTypes/boolean-radios/boolean-radios.html')
   require('./templates/bootstrap3/inputTypes/boolean-radios/boolean-radios.js')
