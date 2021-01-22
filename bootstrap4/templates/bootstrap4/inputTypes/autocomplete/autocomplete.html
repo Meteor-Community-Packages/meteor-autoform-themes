@@ -1,7 +1,10 @@
 <template name="afAutocomplete_bootstrap4">
-  <div class="autocomplete dropdown">
-    <input type="text" value="{{this.label}}" {{this.visibleAtts}} />
-    <div class="dropdown-menu"></div>
-  </div>
-  <input type="hidden" value="{{this.value}}" {{this.atts}}/>
+        <input type="text" value="{{this.label}}" {{attsPlusFormControlClass this.visibleAtts}} />
+    <div class="autocomplete dropdown">
+        <div class="dropdown-menu"></div>
+        {{#if afFieldIsInvalid name=this.name}}
+            <div class="invalid-feedback">{{{afFieldMessage name=this.name}}}</div>
+        {{/if}}
+    </div>
+    <input type="hidden" value="{{this.value}}" {{this.atts}}/>
 </template>
