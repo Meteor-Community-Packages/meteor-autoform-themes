@@ -5,7 +5,7 @@ import './select-checkbox-inline.html'
 
 Template.afCheckboxGroupInline_bootstrap4.helpers({
   atts: function (index) {
-    const saag = selectedAttsAdjustGroup.call(this)
+    const saag = selectedAttsAdjustGroup.call(this, index)
     if (saag.id) {
       saag.id = `${saag.id}-${index}`
     }
