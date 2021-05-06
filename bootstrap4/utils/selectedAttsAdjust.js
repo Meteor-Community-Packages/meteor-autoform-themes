@@ -1,14 +1,14 @@
-export const selectedAttsAdjust = function selectedAttsAdjust () {
+export const selectedAttsAdjust = function selectedAttsAdjust (index) {
   const atts = { ...this.atts }
-  if (this.selected) {
+  if (this.selected || this.items?.[index]?.selected) {
     atts.checked = ''
   }
   return atts
 }
 
-export const selectedAttsAdjustGroup = function selectedAttsAdjustGroup () {
+export const selectedAttsAdjustGroup = function selectedAttsAdjustGroup (index) {
   const self = this
-  const atts = selectedAttsAdjust.call(self)
+  const atts = selectedAttsAdjust.call(self, index)
   // remove data-schema-key attribute because we put it
   // on the entire group
   delete atts['data-schema-key']
