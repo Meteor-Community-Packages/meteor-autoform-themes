@@ -1,22 +1,15 @@
 import { Template } from 'meteor/templating'
-import { omit } from '../../../../utils/omit'
+import { selectedAttsAdjustGroup } from '../../../../utils/selectedAttsAdjust'
 import './select-radio-inline.html'
 
 Template.afRadioGroupInline_bootstrap4.helpers({
   atts (index) {
-    const atts = omit(this.atts, 'data-schema-key')
-    if (this.selected) {
-      atts.checked = ''
+    const saag = selectedAttsAdjustGroup.call(this, index)
+    if (saag.id) {
+      saag.id = `${saag.id}-${index}`
     }
-
-    atts.class = atts.class || ''
-    atts.class = `${atts.class} form-check-input custom-control-input`
-
-    if (atts.id) {
-      atts.id = `${atts.id}-${index}`
-    }
-
-    return atts
+    saag.class = `${saag.class || ''} custom-control-input`
+    return saag
   },
   dsk () {
     return { 'data-schema-key': this.atts['data-schema-key'] }
