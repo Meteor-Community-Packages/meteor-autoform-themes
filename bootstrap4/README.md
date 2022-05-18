@@ -60,7 +60,7 @@ For statically (immediately) importing the theme you need to import the static
 loader module in your client's startup code:
 
 ```javascript
-import { AutoFormThemeBootstrap4 } from 'meteor/communitypackages:autoform-boostrap4/static'
+import { AutoFormThemeBootstrap4 } from 'meteor/communitypackages:autoform-bootstrap4/static'
 
 AutoFormThemeBootstrap4.load()
 ```
@@ -76,7 +76,7 @@ size (estimated via `bundle-visualizer`).
 In order to do so you need to import the dynamic version of the loader function:
 
 ```javascript
-import { AutoFormThemeBootstrap4 } from 'meteor/communitypackages:autoform-boostrap4/dynamic'
+import { AutoFormThemeBootstrap4 } from 'meteor/communitypackages:autoform-bootstrap4/dynamic'
 
 AutoFormThemeBootstrap4.load()
   .then(() => {
@@ -118,6 +118,8 @@ form declaration:
 
 ## History
 
+- 1.0.6
+  - fix checkbox/radio buttons where existing values were not marked as checked
 - 1.0.5
   - provide real split between static and dynamic version without environment
     flags required
