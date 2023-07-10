@@ -1,0 +1,12 @@
+<template name="afRadioGroupInline_bootstrap5">
+  <div class="af-radio-group" {{dsk}}>
+    {{#each item in this.items}}
+        {{#with atts @index}}
+         <div class="form-check form-check-inline">
+            <input type="radio" value="{{item.value}}" {{this}}>
+            <label class="form-check-label" for="{{this.id}}">{{item.label}}</label>
+         </div>
+        {{/with}}
+    {{/each}}
+  </div>
+</template>
