@@ -1,4 +1,5 @@
 <template name="afSelect_bootstrap5">
+{{#afInputGroup append=atts.append prepend=atts.prepend}}
   <select {{attsPlusFormControlClass}}>
     {{#each this.items}}
     {{#if this.optgroup}}
@@ -12,4 +13,5 @@
     {{/if}}
     {{/each}}
   </select>
+{{/afInputGroup}}
 </template>

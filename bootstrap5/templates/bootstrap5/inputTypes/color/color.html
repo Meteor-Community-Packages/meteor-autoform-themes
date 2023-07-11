@@ -1,3 +1,5 @@
 <template name="afInputColor_bootstrap5">
-  <input type="color" value="{{this.value}}" {{attsPlusFormControlClass}}/>
+    {{#afInputGroup append=atts.append prepend=atts.prepend}}
+        <input type="color" value="{{this.value}}" {{attsPlusFormControlClass}}/>
+    {{/afInputGroup}}
 </template>

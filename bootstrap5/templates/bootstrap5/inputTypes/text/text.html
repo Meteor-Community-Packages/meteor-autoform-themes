@@ -1,3 +1,5 @@
 <template name="afInputText_bootstrap5">
-  <input type="text" value="{{this.value}}" {{attsPlusFormControlClass}}/>
+    {{#afInputGroup append=atts.append prepend=atts.prepend}}
+        <input type="text" value="{{this.value}}" {{attsPlusFormControlClass}}/>
+    {{/afInputGroup}}
 </template>

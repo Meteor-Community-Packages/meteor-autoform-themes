@@ -18,13 +18,8 @@ which is why you need to install via NPM, too.
 Altogether you need the following packages:
 
 ```
-# install NPM dependencies
-$ meteor npm install --save bootstrap popper.js jquery
-$ meteor npm install --save @fortawesome/fontawesome-free # optional, if using FA 5
-
-# install meteor packages
-$ meteor add communitypackages:autoform-bootstrap5 jquery@3.0.0!
-$ meteor add fortawesome:fontawesome # optional, if using FA4
+$ meteor npm install --save bootstrap @popperjs/core
+$ meteor add communitypackages:autoform-bootstrap5
 ```
 
 ### Importing Bootstrap 5
@@ -34,11 +29,8 @@ Import the Bootstrap theme and optional packages in your otp level client code
 
 ```javascript
 import 'bootstrap'
-import 'bootstrap/dist/css/bootstrap.css'            // optional, default theme
-import '@fortawesome/fontawesome-free/js/all.js' // optional, is using FA5
-import popper from 'popper.js'
-
-global.Popper = popper                           // fix Popper.js issues
+import 'bootstrap/dist/css/bootstrap.css' // optional, default theme
+import popper from '@popperjs/core'
 ```
 
 ### Importing the AutoForm theme
@@ -92,6 +84,38 @@ AutoFormThemebootstrap5.load()
   })
 ```  
 
+### Mapping Icons (optional)
+
+The Array component contains Buttons with icons, which we now renderer with an internal fallback. 
+We removed support for a specific icon library and now do provide a way to register your custom template
+to render these icons.
+This allows you to use your favourite icon library, like fontawesome, bootstrap icons, hero icons and more!
+
+```js
+import { AutoFormThemebootstrap5 } from 'meteor/communitypackages:autoform-bootstrap5/static'
+
+// ...make sure your icon renderer template is imported
+AutoFormThemebootstrap5.icons.register({ name: 'myIconTemplateName' })
+```
+
+The icon template will be called with `{ name }` as arguments, where `name` is currently representing the following:
+
+| value   | description                 | fallback |
+|---------|-----------------------------|----------|
+| `plus`  | Representing a plus symbol  | +        |
+| `minus` | Representing a minus symbol | -        |
+
+Make sure you correctly map these names to your icon names, in case the do differ from these values.
+An example implementation with fontawesome could look like this:
+
+```handlebars
+<template name="myIconTemplateName">
+  <i class="fa fas fa-fw fa-{{name}}"></i>
+</template>
+```
+
+
+
 ## Using the theme
 
 After installation you have to options to use the theme with your forms:
@@ -115,6 +139,40 @@ form declaration:
 {{/autoForm}}
 ```
 
+## Adding icons
+
+If you registered an icon template (See installation - mapping icons) then you can place your custom icons within
+certain templates.
+
+### quickForm
+
+The submit button now contains an option `buttonIcon`, which renders an icon next to the submit button's content.
+This does not affect the other options, like `buttonClasses` or `buttonContents`.
+
+## Prepend / Append
+
+You can now [append/prepend icons or text or use text as fallback](https://getbootstrap.com/docs/5.3/forms/input-group/).
+Take a look at the following schema:
+
+```js
+new SimpleSchema({
+  text: {
+    type: String,
+      autoform: {
+        // rendered at the end of the input,
+        // use prepend to render at the start
+        // or both to render at start and end
+        append: {
+          icon: 'user',
+          // dynamic text is possible, too,
+          text: () => i18n.get('actions.update')
+        },
+    }
+  }
+})
+```
+
+This works with all text-based inputs, color, textarea and even select!
 
 ## History
 

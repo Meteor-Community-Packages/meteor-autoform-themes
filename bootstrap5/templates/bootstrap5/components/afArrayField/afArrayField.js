@@ -1,2 +1,2 @@
-import '../../icon.js'
+import '../../icon/icon.js'
 import './afArrayField.html'

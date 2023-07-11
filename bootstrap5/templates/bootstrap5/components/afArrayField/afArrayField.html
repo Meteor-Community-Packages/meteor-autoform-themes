@@ -17,7 +17,8 @@
                         <div class="autoform-remove-item-wrap me-2">
                             {{#if afArrayFieldHasMoreThanMinimum name=../atts.name minCount=../atts.minCount maxCount=../atts.maxCount}}
                                 <button type="button"
-                                        class="btn btn-primary autoform-remove-item">{{>afIcon_bootstrap5 fa='minus'}}
+                                        class="btn btn-primary autoform-remove-item">
+                                    {{>afIcon_bootstrap5 name='minus' fallback="-"}}
                                 </button>
                             {{/if}}
                         </div>
@@ -32,7 +33,9 @@
                 <li class="list-group-item w-100">
                     <button type="button" class="btn btn-primary autoform-add-item"
                             data-autoform-field="{{this.atts.name}}" data-autoform-minCount="{{this.atts.minCount}}"
-                            data-autoform-maxCount="{{this.atts.maxCount}}">{{>afIcon_bootstrap5 fa='plus'}}</button>
+                            data-autoform-maxCount="{{this.atts.maxCount}}">
+                        {{>afIcon_bootstrap5 name='plus' fallback="+"}}
+                    </button>
                 </li>
             {{/if}}
         </ul>

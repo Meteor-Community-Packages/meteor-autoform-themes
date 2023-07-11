@@ -1,3 +1,5 @@
 <template name="afInputDate_bootstrap5">
-  <input type="date" value="{{this.value}}" {{attsPlusFormControlClass}}/>
+    {{#afInputGroup append=atts.append prepend=atts.prepend}}
+        <input type="date" value="{{this.value}}" {{attsPlusFormControlClass}}/>
+    {{/afInputGroup}}
 </template>

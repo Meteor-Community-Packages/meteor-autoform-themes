@@ -17,6 +17,9 @@
     {{#if qfShouldRenderButton}}
       <div>
         <button type="submit" {{submitButtonAtts}}>
+            {{#with ../atts.buttonIcon}}
+                {{> afIcon_bootstrap5 name=this}}
+            {{/with}}
           {{#with ../atts.buttonContent}}
           {{this}}
           {{else}}

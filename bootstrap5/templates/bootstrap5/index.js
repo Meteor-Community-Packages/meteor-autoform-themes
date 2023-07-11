@@ -3,6 +3,7 @@ import './components/afArrayField/afArrayField.js'
 import './components/afFormGroup/afFormGroup.js'
 import './components/afObjectField/afObjectField.js'
 import './components/quickForm/quickForm.js'
+import './input-group/afInputGroup.js'
 
 // Input types
 import './inputTypes/boolean-checkbox/boolean-checkbox.js'
