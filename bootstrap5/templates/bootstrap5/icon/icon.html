@@ -1,0 +1,9 @@
+<template name="afIcon_bootstrap5">
+    {{#with renderer}}
+        {{> Template.dynamic template=this.template data=this.data}}
+    {{else}}
+        {{#with fallbackLabel}}
+            <span class="font-monospace fw-bold">{{this}}</span>
+        {{/with}}
+    {{/with}}
+</template>

@@ -1,0 +1,20 @@
+<template name="afObjectField_bootstrap5">
+  <div class="card {{#if afFieldIsInvalid name=this.name}}border-danger{{/if}} {{cardClass}} mb-3">
+    {{#unless headless}}
+      {{#with afFieldLabelText name=this.name}}
+        <h5 class="card-header {{headingClass}}">{{this}}</h5>
+      {{/with}}
+    {{/unless}}
+    <div class="card-body {{bodyClass}}">
+      {{#if headless}}
+        {{#with afFieldLabelText name=this.name}}
+          <h5 class="card-title">{{this}}</h5>
+        {{/with}}
+      {{/if}}
+      {{#if afFieldIsInvalid name=this.name}}
+        <p><span class="text-danger form-text">{{{afFieldMessage name=this.name}}}</span></p>
+      {{/if}}
+      {{> afQuickFields quickFieldsAtts}}
+    </div>
+  </div>
+</template>

@@ -1,0 +1,23 @@
+<template name="afInputGroup">
+    <div class="input-group mb-3">
+        {{#if prepend}}
+            <span class="input-group-text">
+                {{#if prepend.icon}}
+                    {{> afIcon_bootstrap5 name=prepend.icon fallback=prepend.text}}
+                {{else if prepend.text}}
+                    {{prepend.text}}
+                {{/if}}
+            </span>
+        {{/if}}
+        {{> Template.contentBlock}}
+        {{#if append}}
+            <span class="input-group-text">
+                {{#if append.icon}}
+                    {{> afIcon_bootstrap5 name=append.icon fallback=append.text}}
+                {{else if append.text}}
+                    {{append.text}}
+                {{/if}}
+            </span>
+        {{/if}}
+    </div>
+</template>

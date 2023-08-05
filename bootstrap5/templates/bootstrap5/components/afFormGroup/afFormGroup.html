@@ -1,0 +1,11 @@
+<template name="afFormGroup_bootstrap5">
+  <div class="{{afFormGroupClass}}" data-required={{required}} {{afFormGroupAtts}}>
+    {{#unless skipLabel}}
+    <label {{bsFieldLabelAtts}}>{{#if this.labelText}}{{this.labelText}}{{else}}{{afFieldLabelText name=this.name}}{{/if}}</label>
+    {{/unless}}
+    {{> afFieldInput bsFieldInputAtts}}
+    {{#if afFieldIsInvalid name=this.name}}
+      <div class="text-danger form-text">{{{afFieldMessage name=this.name}}}</div>
+    {{/if}}
+  </div>
+</template>

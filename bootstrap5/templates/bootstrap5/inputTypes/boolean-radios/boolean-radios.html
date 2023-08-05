@@ -1,0 +1,18 @@
+<template name="afBooleanRadioGroup_bootstrap5">
+  <div {{dsk}}>
+    <div class="form-check form-check-inline">
+      <input type="radio" value="false" name="{{this.name}}" {{falseAtts}}>
+      <label class="form-check-label">{{falseLabel}}</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input type="radio" value="true" name="{{this.name}}" {{trueAtts}}>
+      <label class="form-check-label">{{trueLabel}}</label>
+    </div>
+    {{#if this.atts.nullLabel}}
+      <div class="form-check form-check-inline">
+        <input type="radio" value="null" name="{{this.name}}" {{nullAtts}}>
+        <label class="form-check-label">{{this.atts.nullLabel}}</label>
+      </div>
+    {{/if}}
+  </div>
+</template>
