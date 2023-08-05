@@ -176,22 +176,8 @@ This works with all text-based inputs, color, textarea and even select!
 
 ## History
 
-- 1.0.6
-  - fix checkbox/radio buttons where existing values were not marked as checked
-- 1.0.5
-  - provide real split between static and dynamic version without environment
-    flags required
-- 1.0.4
-  - skipped, do not use
-- 1.0.3
-  - Added optional dynamic import via `AUTOFORM_DYNAMIC_IMPORTS` env flag
-- 1.0.2
-  - input type select-radio uses [bs4 custom-radio skin](https://getbootstrap.com/docs/4.5/components/forms/#radios)
-  - input type select-radio-inline uses [bs4 custom-radio-inline skin](https://getbootstrap.com/docs/4.5/components/forms/#inline-1)
-  - input type select-checkbox uses [bs4 custom-checkbox skin](https://getbootstrap.com/docs/4.5/components/forms/#checkboxes)
-  - 
-- 1.0.1
-  - import via dynamic imports
+- 1.0.0
+  - initial release
 
 ## License
 
