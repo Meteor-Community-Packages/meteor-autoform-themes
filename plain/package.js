@@ -15,9 +15,9 @@ Package.onUse(function (api) {
   api.versionsFrom(['1.3', '2.7.3', '3.0-rc.4'])
   api.use('ecmascript')
   api.use([
-    'templating@1.3.2',
+    'templating',
     'aldeed:autoform@6.0.0 || 7.0.0 || 8.0.0-rc.2'
   ], 'client')
 
-  api.mainModule('autoform-bootstrap5.js', 'client')
+  api.mainModule('autoform-plain.js', 'client')
 })
