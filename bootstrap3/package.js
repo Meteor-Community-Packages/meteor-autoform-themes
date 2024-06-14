@@ -1,7 +1,7 @@
 /* eslint-env meteor */
 Package.describe({
   name: 'communitypackages:autoform-bootstrap3',
-  version: '2.0.0-rc.0',
+  version: '2.0.0-rc.1',
   // Brief, one-line summary of the package.
   summary: 'Bootstrap 3 theme for aldeed:autoform',
   // URL to the Git repository containing the source code for this package.
@@ -12,17 +12,18 @@ Package.describe({
 })
 
 Package.onUse(function (api) {
-  api.versionsFrom(['1.3', '2.7.3', '3.0-alpha.19'])
+  api.versionsFrom(['1.3', '2.7.3', '3.0-rc.4'])
   api.use('ecmascript')
   api.use([
-    'templating@1.3.2',
-    'aldeed:autoform@6.0.0 || 7.0.0 || 8.0.0-rc.0'
+    'templating',
+    'aldeed:autoform@6.0.0 || 7.0.0 || 8.0.0-rc.2'
   ], 'client')
 
   api.mainModule('autoform-bootstrap3.js')
 })
 
 Package.onTest(function (api) {
+  api.versionsFrom(['1.3', '2.7.3', '3.0-rc.4'])
   api.use('ecmascript')
   api.use('tinytest')
   api.use('communitypackages:autoform-bootstrap3')
