@@ -10,6 +10,10 @@ With the beginning of AutoForm v7 there is no default theme included in AutoForm
 in order to lower the package footprint and leave developers more options
 for decision.
 
+> Note for Meteor 3 and beyond
+> This package is Meteor 3 compatible. Please check the latest releases
+> on packosphere.com to see available alphas/betas and release candidates.
+
 ## Available themes
 
 The following list contains the available themes. Note, that each has it's own
