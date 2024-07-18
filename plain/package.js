@@ -1,7 +1,7 @@
 /* eslint-env meteor */
 Package.describe({
   name: 'communitypackages:autoform-plain',
-  version: '2.0.0-rc.1',
+  version: '2.0.0-rc.2',
   // Brief, one-line summary of the package.
   summary: 'Plain theme for aldeed:autoform',
   // URL to the Git repository containing the source code for this package.
@@ -12,11 +12,11 @@ Package.describe({
 })
 
 Package.onUse(function (api) {
-  api.versionsFrom(['1.3', '2.7.3', '3.0-rc.4'])
+  api.versionsFrom(['1.3', '2.7.3', '3.0.1'])
   api.use('ecmascript')
   api.use([
     'templating',
-    'aldeed:autoform@6.0.0 || 7.0.0 || 8.0.0-rc.2'
+    'aldeed:autoform@6.0.0 || 7.0.0 || 8.0.0-rc.3'
   ], 'client')
 
   api.mainModule('autoform-plain.js', 'client')
