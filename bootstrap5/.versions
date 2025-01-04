@@ -1,4 +1,4 @@
-aldeed:autoform@8.0.0-rc.3
+aldeed:autoform@8.0.0
 allow-deny@2.0.0
 babel-compiler@7.11.0
 babel-runtime@1.5.2
@@ -11,7 +11,7 @@ caching-compiler@2.0.0
 caching-html-compiler@2.0.0
 callback-hook@1.6.0
 check@1.4.2
-communitypackages:autoform-bootstrap5@2.0.0-rc.2
+communitypackages:autoform-bootstrap5@2.0.0
 core-runtime@1.0.0
 ddp@1.4.2
 ddp-client@3.0.0
